@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/security
+    username: security
+    password: security00
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: ali
+    password: ali
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
+  application:
+    security:
+      jwt:
+        secret-key: LKuC9NlAi4+E7WcptU0zlIT6tW9IyDHTUsiMZxT38HVcJy/xtOcmhLry4FEFXLAZQm6IB2pBamPYD+DG9i3rmw==
+        expiration: 9000000
+    mailing:
+      frontend:
+        activateUrl: http://localhost:4200/activate_account
+
+  logging:
+    level:
+      org:
+        springframework: security=DEBUG
